@@ -55,8 +55,8 @@ export const MerchantListItem = ({
   }
 
   const setMetrics = () => {
-    itemScrollTop.current = itemRef.current.getBoundingClientRect().top;
-    footerRef.current.style.setProperty(
+    itemScrollTop.current = itemRef.current?.getBoundingClientRect().top;
+    footerRef.current?.style.setProperty(
       '--expanded-height',
       `${footerContentRef.current.offsetHeight}px`
     );

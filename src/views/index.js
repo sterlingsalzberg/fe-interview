@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 
-import { useStore } from "./../store";
+import { useStore, useAction } from "./../store";
 import { Tabs } from "./../components/tabs";
 import { Grid } from "./../components/grid";
 import { MerchantList } from "./../components/merchant-list";
+import { Loader } from "./../components/loader";
 
 export const Index = () => {
-  const { state: { merchants } } = useStore();
+  const { fetchMerchants } = useAction();
+  const { state: { merchants, isLoading } } = useStore();
   const bills = merchants.filter(({ isBill }) => isBill);
   const transactions = merchants.filter(({ isBill }) => !isBill);
   const items = [
@@ -24,8 +26,12 @@ export const Index = () => {
     },
   ];
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(fetchMerchants, []); // only run on mount
+
   return (
     <Grid>
+      {isLoading && <Loader />}
       <Tabs {...{ items }} />
     </Grid>
   )

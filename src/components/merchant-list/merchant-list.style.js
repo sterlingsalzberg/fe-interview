@@ -3,7 +3,7 @@ import styled, { css } from "styled-components/macro";
 import { MEDIA_HOVER, IS_MEDIUM, IS_SMALL } from "./../../utils/media";
 
 const CSS_CONFIG = css`
-  --animation-duration: 0.2s;
+  --animation-duration: 300ms;
 `;
 
 export const MerchantListItemWrapper = styled.li`

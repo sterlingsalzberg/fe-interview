@@ -1,6 +1,6 @@
 export const colors = {
   white: "#ffffff",
-  black: "#ffffff",
+  black: "#000000",
   accent: "#FF7970",
   keyline: "#AFC4B8",
   error: "#BB2020",
